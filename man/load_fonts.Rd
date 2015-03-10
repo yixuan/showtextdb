@@ -2,7 +2,7 @@
 % Please edit documentation in R/load_fonts.R
 \name{load_fonts}
 \alias{load_fonts}
-\title{Loading Fonts For The showtext Package}
+\title{Loading Fonts For The 'showtext' Package}
 \usage{
 load_fonts()
 }
