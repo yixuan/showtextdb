@@ -10,7 +10,12 @@ load_fonts()
 This function loads fonts that will be used by the \pkg{showtext} package.
 }
 \examples{
+\dontrun{
+sysfonts::font.families()
+
 load_fonts()
+sysfonts::font.families()
+}
 }
 \author{
 Yixuan Qiu <\url{http://statr.me/}>

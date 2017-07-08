@@ -4,7 +4,12 @@
 #' 
 #' @export
 #' @author Yixuan Qiu <\url{http://statr.me/}>
-#' @examples load_fonts()
+#' @examples \dontrun{
+#' sysfonts::font.families()
+#' 
+#' load_fonts()
+#' sysfonts::font.families()
+#' }
 load_fonts = function()
 {
     load_default_font()
