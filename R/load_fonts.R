@@ -1,4 +1,4 @@
-#' Loading Fonts For The 'showtext' Package
+#' Load Fonts for the 'showtext' Package
 #' 
 #' This function loads fonts that will be used by the \pkg{showtext} package.
 #' 

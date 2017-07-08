@@ -1,8 +1,29 @@
-#' Installing Fonts To The 'showtextdb' Package
+#' Install Fonts to the 'showtextdb' Package
 #' 
 #' This function saves the specified font to the \file{fonts} directory of the
 #' \pkg{showtextdb} package, so that it can be used by the \pkg{showtext}
 #' package.
+#' 
+#' @param font_desc A list that provides necessary information of the font
+#'                  for installation. See the \strong{Details} section.
+#' @param quiet Whether to show the progress of downloading and installation.
+#' 
+#' @details \code{font_desc} should contain at least the following components:
+#' 
+#' \describe{
+#'   \item{\code{showtext_name}}{The family name of the font that will be used in
+#'                               \pkg{showtext}.}
+#'   \item{\code{font_ext}}{Extension name of the font files, e.g., \code{ttf} for
+#'                          TrueType, and \code{otf} for OpenType.}
+#'   \item{\code{regular_url}}{URL of the font file for "regular" font face.}
+#' }
+#' 
+#' Optionally, \code{font_desc} can also contain \code{bold_url}, \code{italic_url},
+#' \code{bolditalic_url}, and \code{symbol_url} that provide the URLs of the other
+#' font faces.
+#' 
+#' See \code{\link{source_han_sans}()} and \code{\link{source_han_serif}()}
+#' for an example of the \code{font_desc} parameter.
 #' 
 #' @export
 #' @author Yixuan Qiu <\url{http://statr.me/}>
@@ -12,7 +33,7 @@
 install_fonts = function(font_desc, quiet = FALSE)
 {
     font_desc = as.list(font_desc)
-    name = font_desc$sysfonts_name
+    name = font_desc$showtext_name
     ext  = font_desc$font_ext
     
     ## Create a directory with the font family name
