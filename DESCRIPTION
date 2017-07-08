@@ -7,7 +7,10 @@ Author: Yixuan Qiu and authors/contributors of the included fonts. See file
     AUTHORS for details.
 Maintainer: Yixuan Qiu <yixuan.qiu@cos.name>
 Description: Providing font files that are needed by the 'showtext' package.
-Depends:
-    sysfonts
+Imports:
+    sysfonts, utils
+Suggests:
+    curl
 License: Apache License (>= 2.0)
 Copyright: see file COPYRIGHTS
+RoxygenNote: 6.0.1
