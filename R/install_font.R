@@ -28,9 +28,9 @@
 #' @export
 #' @author Yixuan Qiu <\url{http://statr.me/}>
 #' @examples \dontrun{
-#' install_fonts(source_han_serif())
+#' install_font(source_han_serif())
 #' }
-install_fonts = function(font_desc, quiet = FALSE)
+install_font = function(font_desc, quiet = FALSE)
 {
     font_desc = as.list(font_desc)
     name = font_desc$showtext_name
