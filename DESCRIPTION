@@ -1,12 +1,12 @@
 Package: showtextdb
 Type: Package
 Title: Font Files for the 'showtext' Package
-Version: 1.0
-Date: 2015-03-09
+Version: 2.0
+Date: 2017-07-08
 Author: Yixuan Qiu and authors/contributors of the included fonts. See file
     AUTHORS for details.
 Maintainer: Yixuan Qiu <yixuan.qiu@cos.name>
-Description: Providing font files that are needed by the 'showtext' package.
+Description: Providing font files that can be used by the 'showtext' package.
 Imports:
     sysfonts, utils
 Suggests:
