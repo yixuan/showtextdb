@@ -61,7 +61,7 @@ load_user_fonts = function()
         {
             font_files = list.files(font_dirs[i])
             args = lapply(faces, function(face) {
-                r = grep(sprintf("^%s\\.[[:alnum:]]+", face), font_files, value = TRUE)
+                r = grep(sprintf("^%s\\.[[:alnum:]]+$", face), font_files, value = TRUE)
                 if(!length(r)) NULL else file.path(font_dirs[i], r)
             })
             names(args) = faces

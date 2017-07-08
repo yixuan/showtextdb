@@ -2,9 +2,12 @@
 % Please edit documentation in R/install_font.R
 \name{install_font}
 \alias{install_font}
+\alias{installed_fonts}
 \title{Install Fonts to the 'showtextdb' Package}
 \usage{
 install_font(font_desc, quiet = FALSE)
+
+installed_fonts()
 }
 \arguments{
 \item{font_desc}{A list that provides necessary information of the font
@@ -13,9 +16,14 @@ for installation. See the \strong{Details} section.}
 \item{quiet}{Whether to show the progress of downloading and installation.}
 }
 \description{
-This function saves the specified font to the \file{fonts} directory of the
-\pkg{showtextdb} package, so that it can be used by the \pkg{showtext}
-package.
+\code{install_font()} saves the specified font to the \file{fonts} directory of
+the \pkg{showtextdb} package, so that it can be used by the \pkg{showtext}
+package. \code{installed_fonts()} lists fonts that have been installed to
+this package.
+
+\strong{NOTE}: Since the fonts are installed locally to the pakcage directory,
+they will be removed every time the \pkg{showtextdb} package is upgraded or
+re-installed.
 }
 \details{
 \code{font_desc} should contain at least the following components:
@@ -37,7 +45,27 @@ for an example of the \code{font_desc} parameter.
 }
 \examples{
 \dontrun{
+## Install Source Han Serif Simplified Chinese
 install_font(source_han_serif())
+
+## List available font families
+sysfonts::font.families()
+
+## Use the font with the "showtext" package
+if(require(showtext)) {
+    wd = setwd(tempdir())
+    showtext.auto()
+    
+    pdf("source-han-serif.pdf")
+    par(family = "source-han-serif-cn")
+    plot.new()
+    box()
+    text(0.5, 0.9, "\\u601d\\u6e90\\u5b8b\\u4f53", cex = 3, font = 2)
+    text(0.5, 0.4, "\\u843d\\u5176\\u5b9e\\u8005\\u601d\\u5176\\u6811", cex = 3)
+    text(0.5, 0.2, "\\u996e\\u5176\\u6d41\\u8005\\u6000\\u5176\\u6e90", cex = 3)
+    dev.off()
+    setwd(wd)
+}
 }
 }
 \author{
