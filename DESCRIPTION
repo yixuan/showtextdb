@@ -2,13 +2,13 @@ Package: showtextdb
 Type: Package
 Title: Font Files for the 'showtext' Package
 Version: 2.0
-Date: 2017-07-08
+Date: 2017-09-08
 Author: Yixuan Qiu and authors/contributors of the included fonts. See file
     AUTHORS for details.
 Maintainer: Yixuan Qiu <yixuan.qiu@cos.name>
 Description: Providing font files that can be used by the 'showtext' package.
 Imports:
-    sysfonts, utils
+    sysfonts (>= 0.7), utils
 Suggests:
     curl
 License: Apache License (>= 2.0)
