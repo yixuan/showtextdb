@@ -20,8 +20,10 @@ for installation. See the \strong{Details} section.}
 \description{
 \code{font_install()} saves the specified font to the \file{fonts} directory of
 the \pkg{showtextdb} package, so that it can be used by the \pkg{showtext}
-package. \code{font_installed()} lists fonts that have been installed to
-\pkg{showtextdb}. This function requires the \pkg{curl} package.
+package. This function requires the \pkg{curl} package.
+
+\code{font_installed()} lists fonts that have been installed to
+\pkg{showtextdb}.
 
 \strong{NOTE}: Since the fonts are installed locally to the pakcage directory,
 they will be removed every time the \pkg{showtextdb} package is upgraded or
