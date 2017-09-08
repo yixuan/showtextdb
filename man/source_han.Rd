@@ -10,9 +10,13 @@ source_han_sans(lang = c("CN", "TW", "JP", "KR"))
 
 source_han_serif(lang = c("CN", "TW", "JP", "KR"))
 }
+\arguments{
+\item{lang}{Language of the font. "CN" for simplified Chinese, "TW" for
+traditional Chinese, "JP" for Japanese, and "KR" for Korean.}
+}
 \description{
 These functions provide information of the Source Han Sans/Serif fonts
-that can be used in the \code{\link{install_font}()} function.
+that can be used in the \code{\link{font_install}()} function.
 Source Han Sans/Serif fonts provide complete support for the
 CJK (\strong{C}hinese, \strong{J}apanese, and \strong{K}orean) characters.
 }
@@ -20,10 +24,10 @@ CJK (\strong{C}hinese, \strong{J}apanese, and \strong{K}orean) characters.
 \dontrun{
 ## Install Source Han Sans font (by default Simplified Chinese)
 ## to the showtexdb package
-install_font(source_han_sans())
+font_install(source_han_sans())
 
 ## Source Han Serif Japanese
-install_font(source_han_serif("JP"))
+font_install(source_han_serif("JP"))
 }
 }
 \author{
