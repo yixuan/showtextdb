@@ -1,10 +1,10 @@
 #' Install Fonts to the 'showtextdb' Package
 #' 
 #' @description 
-#' \code{install_font()} saves the specified font to the \file{fonts} directory of
+#' \code{font_install()} saves the specified font to the \file{fonts} directory of
 #' the \pkg{showtextdb} package, so that it can be used by the \pkg{showtext}
-#' package. \code{installed_fonts()} lists fonts that have been installed to
-#' this package.
+#' package. \code{font_installed()} lists fonts that have been installed to
+#' \pkg{showtextdb}. This function requires the \pkg{curl} package.
 #' 
 #' \strong{NOTE}: Since the fonts are installed locally to the pakcage directory,
 #' they will be removed every time the \pkg{showtextdb} package is upgraded or
@@ -13,8 +13,9 @@
 #' @param font_desc A list that provides necessary information of the font
 #'                  for installation. See the \strong{Details} section.
 #' @param quiet Whether to show the progress of downloading and installation.
+#' @param \dots Other parameters passed to \code{curl::curl_download()}.
 #' 
-#' @details \code{font_desc} should contain at least the following components:
+#' @details \code{font_desc} is a list that should contain at least the following components:
 #' 
 #' \describe{
 #'   \item{\code{showtext_name}}{The family name of the font that will be used in
@@ -35,10 +36,10 @@
 #' @author Yixuan Qiu <\url{http://statr.me/}>
 #' @examples \dontrun{
 #' ## Install Source Han Serif Simplified Chinese
-#' install_font(source_han_serif())
+#' font_install(source_han_serif())
 #' 
 #' ## List available font families
-#' sysfonts::font.families()
+#' sysfonts::font_families()
 #' 
 #' ## Use the font with the "showtext" package
 #' if(require(showtext)) {
@@ -56,27 +57,27 @@
 #'     setwd(wd)
 #' }
 #' }
-install_font = function(font_desc, quiet = FALSE)
+font_install = function(font_desc, quiet = FALSE, ...)
 {
     font_desc = as.list(font_desc)
     name = font_desc$showtext_name
     ext  = font_desc$font_ext
     
+    ## font_desc must contain a URL for the regular font face
+    if(!("regular_url" %in% names(font_desc)))
+        stop("'font_desc' must contain a component named 'regular_url'")
+    
     ## Create a directory with the font family name
     font_dir = file.path(system.file("fonts", package = "showtextdb"), name)
     if(!dir.exists(font_dir))
         dir.create(font_dir)
-
-    ## font_desc must contain a URL for the regular font face
-    if(!("regular_url" %in% names(font_desc)))
-        stop("'font_desc' must contain a component named 'regular_url'")
     
     regular_file = file.path(font_dir, sprintf("regular.%s", ext))
     if(!file.exists(regular_file))
     {
         if(!quiet)
             message("downloading the 'regular' font face...")
-        curl::curl_download(font_desc$regular_url, regular_file, quiet = quiet)
+        curl::curl_download(font_desc$regular_url, regular_file, quiet = quiet, ...)
     }
     
     other_faces = c("bold", "italic", "bolditalic", "symbol")
@@ -90,7 +91,7 @@ install_font = function(font_desc, quiet = FALSE)
             {
                 if(!quiet)
                     message(sprintf("downloading the '%s' font face...", face))
-                curl::curl_download(face_url, face_file, quiet = quiet)
+                curl::curl_download(face_url, face_file, quiet = quiet, ...)
             }
 
         }
@@ -102,8 +103,8 @@ install_font = function(font_desc, quiet = FALSE)
     invisible(NULL)
 }
 
-#' @rdname install_font
-installed_fonts = function()
+#' @rdname font_install
+font_installed = function()
 {
     ## The directory that contains the user fonts
     font_db = system.file("fonts", package = "showtextdb")
