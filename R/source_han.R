@@ -1,20 +1,23 @@
 #' Meta-information for the Source Han Sans/Serif Fonts
 #' 
 #' These functions provide information of the Source Han Sans/Serif fonts
-#' that can be used in the \code{\link{install_font}()} function.
+#' that can be used in the \code{\link{font_install}()} function.
 #' Source Han Sans/Serif fonts provide complete support for the
 #' CJK (\strong{C}hinese, \strong{J}apanese, and \strong{K}orean) characters.
 #' 
 #' @name source_han
+#' 
+#' @param lang Language of the font. "CN" for simplified Chinese, "TW" for
+#'             traditional Chinese, "JP" for Japanese, and "KR" for Korean.
 #' @export
 #' @author Yixuan Qiu <\url{http://statr.me/}>
 #' @examples \dontrun{
 #' ## Install Source Han Sans font (by default Simplified Chinese)
 #' ## to the showtexdb package
-#' install_font(source_han_sans())
+#' font_install(source_han_sans())
 #' 
 #' ## Source Han Serif Japanese
-#' install_font(source_han_serif("JP"))
+#' font_install(source_han_serif("JP"))
 #' }
 source_han_sans = function(lang = c("CN", "TW", "JP", "KR"))
 {
