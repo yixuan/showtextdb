@@ -1,4 +1,5 @@
 importFrom(utils, unzip)
 import(sysfonts)
 export(source_han_sans, source_han_serif)
-export(load_fonts, install_font, installed_fonts)
+export(font_install, font_installed)
+export(load_showtext_fonts)

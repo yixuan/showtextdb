@@ -5,12 +5,12 @@
 #' @export
 #' @author Yixuan Qiu <\url{http://statr.me/}>
 #' @examples \dontrun{
-#' sysfonts::font.families()
+#' sysfonts::font_families()
 #' 
-#' load_fonts()
-#' sysfonts::font.families()
+#' load_showtext_fonts()
+#' sysfonts::font_families()
 #' }
-load_fonts = function()
+load_showtext_fonts = function()
 {
     load_default_font()
     load_user_fonts()
@@ -21,7 +21,7 @@ load_fonts = function()
 ## Check if a family has been loaded
 already_loaded = function(family)
 {
-    all(family %in% sysfonts::font.families())
+    all(family %in% sysfonts::font_families())
 }
 
 ## Load the default WenQuanYi Micro Hei font
@@ -39,7 +39,7 @@ load_default_font = function()
         utils::unzip(font_file, exdir = out_dir, overwrite = FALSE)
     
     ## Add font to sysfonts
-    sysfonts::font.add("wqy-microhei", out_file)
+    sysfonts::font_add("wqy-microhei", out_file)
     
     invisible(NULL)
 }
@@ -71,7 +71,7 @@ load_user_fonts = function()
             })
             names(args) = faces
             args = c(family = family_names[i], args)
-            do.call(sysfonts::font.add, args)
+            do.call(sysfonts::font_add, args)
         }
     }
     
