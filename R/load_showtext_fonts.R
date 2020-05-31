@@ -60,17 +60,16 @@ load_user_fonts = function()
 {
     ## The directory that contains the user fonts
     font_db = system.file("fonts", package = "showtextdb")
-    
-    ## Each folder under fonts_db is considered a user font with different font faces
-    font_dirs = list.dirs(font_db, recursive = FALSE)
-    if(!length(font_dirs))
-        return(invisible(NULL))
-    
-    ## Family names without the full path
-    family_names = basename(font_dirs)
+
+    ## Installed fonts
+    family_names = font_installed()
+    if(length(family_names) < 1)
+        invisible(NULL)
+
     ## Scan all possible font faces
     faces = c("regular", "bold", "italic", "bolditalic", "symbol")
     ## Add fonts one by one
+    font_dirs = file.path(font_db, family_names)
     for(i in seq_along(family_names))
     {
         if(!already_loaded(family_names[i]))
@@ -82,9 +81,19 @@ load_user_fonts = function()
             })
             names(args) = faces
             args = c(family = family_names[i], args)
-            do.call(sysfonts::font_add, args)
+            ## Family names returned by font_installed() are guaranteed to contain
+            ## at least the regular font face, but we still test it just to be safe
+            if(is.null(args$regular))
+            {
+                msg = paste("the file for the \"regular\" font face is missing, ",
+                            "font \"", family_names[i], "\" is not loaded",
+                            sep = "")
+                warning(msg)
+            } else {
+                do.call(sysfonts::font_add, args)
+            }
         }
     }
-    
+
     invisible(NULL)
 }
