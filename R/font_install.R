@@ -68,7 +68,17 @@ font_install = function(font_desc, quiet = FALSE, ...)
     ## font_desc must contain a URL for the regular font face
     if(!("regular_url" %in% names(font_desc)))
         stop("'font_desc' must contain a component named 'regular_url'")
-    
+
+    ## The directory that contains the user fonts
+    font_db = system.file("fonts", package = "showtextdb")
+    ## Test for write permission
+    if(file.access(font_db, mode = 2) < 0)
+    {
+        msg = paste("the %s directory does not have write permission,",
+                    "unable to install fonts", sep = "\n")
+        stop(sprintf(msg, font_db))
+    }
+
     ## Create a directory with the font family name
     font_dir = file.path(system.file("fonts", package = "showtextdb"), name)
     if(!dir.exists(font_dir))
