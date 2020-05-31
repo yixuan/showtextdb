@@ -11,6 +11,8 @@
           thanks to the debugging by \href{https://github.com/yihui}{@yihui} and
           \href{https://github.com/XiangyunHuang}{@XiangyunHuang}
           (\pkg{showtext} issue \href{https://github.com/yixuan/showtext/issues/30}{#30}).
+    \item \pkg{showtextdb} will now test for write permission before installing and
+          extracting font files.
   }
 }
 
