@@ -8,7 +8,7 @@
 #' \code{font_installed()} lists fonts that have been installed to
 #' \pkg{showtextdb}.
 #' 
-#' \strong{NOTE}: Since the fonts are installed locally to the pakcage directory,
+#' \strong{NOTE}: Since the fonts are installed locally to the package directory,
 #' they will be removed every time the \pkg{showtextdb} package is upgraded or
 #' re-installed.
 #' 
