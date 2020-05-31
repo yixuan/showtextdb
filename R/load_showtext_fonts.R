@@ -30,17 +30,28 @@ load_default_font = function()
     ## Check if wqy-microhei has been loaded already
     if(already_loaded("wqy-microhei"))
         return(invisible(NULL))
-    
+
     ## Extract font file
     font_file = system.file("fonts", "wqy-microhei.ttc.zip", package = "showtextdb")
     out_dir = tempdir()
     out_file = file.path(out_dir, "wqy-microhei.ttc")
     if(!file.exists(out_file))
+    {
+        ## Test for write permission
+        if(file.access(out_dir, mode = 2) < 0)
+        {
+            msg = paste("the temporary directory ", out_dir,
+                        " does not have write permission,\n",
+                        "failed to load the 'WenQuanYi Micro Hei' font", sep = "")
+            warning(msg)
+            return(invisible(NULL))
+        }
         utils::unzip(font_file, exdir = out_dir, overwrite = FALSE)
-    
+    }
+
     ## Add font to sysfonts
     sysfonts::font_add("wqy-microhei", out_file)
-    
+
     invisible(NULL)
 }
 
