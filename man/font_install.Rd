@@ -25,7 +25,7 @@ package. This function requires the \pkg{curl} package.
 \code{font_installed()} lists fonts that have been installed to
 \pkg{showtextdb}.
 
-\strong{NOTE}: Since the fonts are installed locally to the pakcage directory,
+\strong{NOTE}: Since the fonts are installed locally to the package directory,
 they will be removed every time the \pkg{showtextdb} package is upgraded or
 re-installed.
 }
@@ -64,9 +64,9 @@ if(require(showtext)) {
     par(family = "source-han-serif-cn")
     plot.new()
     box()
-    text(0.5, 0.9, "\\u601d\\u6e90\\u5b8b\\u4f53", cex = 3, font = 2)
-    text(0.5, 0.4, "\\u843d\\u5176\\u5b9e\\u8005\\u601d\\u5176\\u6811", cex = 3)
-    text(0.5, 0.2, "\\u996e\\u5176\\u6d41\\u8005\\u6000\\u5176\\u6e90", cex = 3)
+    text(0.5, 0.9, "\u601d\u6e90\u5b8b\u4f53", cex = 3, font = 2)
+    text(0.5, 0.4, "\u843d\u5176\u5b9e\u8005\u601d\u5176\u6811", cex = 3)
+    text(0.5, 0.2, "\u996e\u5176\u6d41\u8005\u6000\u5176\u6e90", cex = 3)
     dev.off()
     setwd(wd)
 }
