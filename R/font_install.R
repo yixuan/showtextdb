@@ -35,7 +35,7 @@
 #' for an example of the \code{font_desc} parameter.
 #' 
 #' @export
-#' @author Yixuan Qiu <\url{http://statr.me/}>
+#' @author Yixuan Qiu <\url{https://statr.me/}>
 #' @examples \dontrun{
 #' ## Install Source Han Serif Simplified Chinese
 #' font_install(source_han_serif())

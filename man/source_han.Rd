@@ -31,5 +31,5 @@ font_install(source_han_serif("JP"))
 }
 }
 \author{
-Yixuan Qiu <\url{http://statr.me/}>
+Yixuan Qiu <\url{https://statr.me/}>
 }

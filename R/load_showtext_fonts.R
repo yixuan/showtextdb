@@ -3,7 +3,7 @@
 #' This function loads fonts that will be used by the \pkg{showtext} package.
 #' 
 #' @export
-#' @author Yixuan Qiu <\url{http://statr.me/}>
+#' @author Yixuan Qiu <\url{https://statr.me/}>
 #' @examples \dontrun{
 #' sysfonts::font_families()
 #' 

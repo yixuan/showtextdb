@@ -10,7 +10,7 @@
 #' @param lang Language of the font. "CN" for simplified Chinese, "TW" for
 #'             traditional Chinese, "JP" for Japanese, and "KR" for Korean.
 #' @export
-#' @author Yixuan Qiu <\url{http://statr.me/}>
+#' @author Yixuan Qiu <\url{https://statr.me/}>
 #' @examples \dontrun{
 #' ## Install Source Han Sans font (by default Simplified Chinese)
 #' ## to the showtexdb package

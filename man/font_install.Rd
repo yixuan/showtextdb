@@ -73,5 +73,5 @@ if(require(showtext)) {
 }
 }
 \author{
-Yixuan Qiu <\url{http://statr.me/}>
+Yixuan Qiu <\url{https://statr.me/}>
 }
